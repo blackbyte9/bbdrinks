@@ -1,0 +1,12 @@
+{
+  "files": [
+    "src/**/*",
+    "public/**/*"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    ".git/**",
+    "dist/**",
+    "build/**"
+  ]
+}
