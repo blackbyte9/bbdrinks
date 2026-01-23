@@ -1,12 +1,13 @@
 
-import DataCard from "@/components/card/data";
+import ItemCard from "@/components/card/item";
 
 export default function Home() {
   return (
     <div>
-      <DataCard name="Flaschen" className="mb-4" />
-      <DataCard name="Kisten" className="mb-4" />
-      <DataCard name="Angebrochen" className="mb-4" />
+      <ItemCard name="Helles" className="mb-8" />
+      <ItemCard name="Weizen" className="mb-8" />
+      <ItemCard name="Dunkles" className="mb-8" />
+      <ItemCard name="Alkoholfrei" className="mb-8" />
     </div>
   );
 }
