@@ -1,13 +1,14 @@
 
 import ItemCard from "@/components/card/item";
+import { getItems } from "@/lib/article/read";
 
-export default function Home() {
+export default async function Home() {
+  const data = await getItems();
   return (
     <div>
-      <ItemCard name="Helles" className="mb-8" />
-      <ItemCard name="Weizen" className="mb-8" />
-      <ItemCard name="Dunkles" className="mb-8" />
-      <ItemCard name="Alkoholfrei" className="mb-8" />
+      {data.map(item => (
+        <ItemCard key={item.id} name={item.name} className="mb-8" />
+      ))}
     </div>
   );
 }

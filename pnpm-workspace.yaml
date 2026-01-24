@@ -5,3 +5,7 @@ ignoredBuiltDependencies:
   - core-js
   - sharp
   - unrs-resolver
+
+onlyBuiltDependencies:
+  - '@prisma/engines'
+  - prisma

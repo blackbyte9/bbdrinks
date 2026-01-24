@@ -1,0 +1,9 @@
+"use server";
+
+import { prisma } from '@/lib/prisma';
+import { Item } from '../prisma/client';
+
+export async function getItems(): Promise<Item[]> {
+    const items = await prisma.item.findMany();
+    return items;
+};
