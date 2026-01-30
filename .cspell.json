@@ -8,5 +8,8 @@
     ".git/**",
     "dist/**",
     "build/**"
+  ],
+  "words": [
+    "getInventorybyId"
   ]
 }
