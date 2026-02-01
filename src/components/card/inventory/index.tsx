@@ -1,5 +1,6 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import AddInventory from '@/components/inventory/add';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useInventory } from '@/contexts/InventoryContext';
 import { Inventory } from '@/lib/prisma/client';
 import React from 'react';
@@ -30,6 +31,11 @@ export const InventoryCard: React.FC<InventoryProps> = ({
             <CardContent className={`flex gap-4 justify-center`}>
                 <h1>Inventur {inventory?.date.toLocaleDateString()}</h1>
             </CardContent>
+            <CardFooter>
+                <div className='flex gap-2 items-center'>
+                    <AddInventory />
+                </div>
+            </CardFooter>
         </Card>
     );
 };
