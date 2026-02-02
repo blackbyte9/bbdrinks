@@ -13,12 +13,6 @@ const InventoryContext = createContext<InventoryContextType | undefined>(undefin
 export const InventoryProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [inventoryId, setInventoryId] = useState<number | null>(null);
 
-    React.useEffect(() => {
-        getInventoryLatest().then(inv => {
-            setInventoryId(inv ? inv.id : null);
-        });
-    }, []);
-
     return (
         <InventoryContext.Provider value={{ inventoryId, setInventoryId }}>
             {children}

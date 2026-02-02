@@ -26,7 +26,7 @@ export const InventoryCard: React.FC<InventoryProps> = ({
     return (
         <Card className={`data-card ${className} `} >
             <CardHeader>
-                <CardTitle className={`text-lg font-thin`}>Inventur</CardTitle>
+                <CardTitle className={`text-lg font-thin`}>Inventur {inventory?.id} </CardTitle>
             </CardHeader>
             <CardContent className={`flex gap-4 justify-center`}>
                 <h1>Inventur {inventory?.date.toLocaleDateString()}</h1>
