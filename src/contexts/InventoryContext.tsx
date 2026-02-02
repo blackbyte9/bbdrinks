@@ -1,6 +1,5 @@
 'use client';
 
-import { getInventoryLatest } from '@/lib/inventory/read';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface InventoryContextType {

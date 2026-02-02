@@ -13,6 +13,18 @@ datasource db {
   provider = "postgresql"
 }
 
+// ============ Shopping list Models ============
+model Shoppinglist {
+  id        Int      @id @default(autoincrement())
+  name      String
+  count     Int      @default(0)
+  user      String   @default("nobody")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ============ Inventory Management Models ============
+
 enum InventoryStatus {
   DELETED
   OPEN
