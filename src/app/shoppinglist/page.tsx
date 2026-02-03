@@ -1,4 +1,5 @@
 import AddItem from "@/components/shoppinglist/add";
+import { RemoveShoppingItem } from "@/components/shoppinglist/remove";
 import { getShoppinglist } from "@/lib/shoppinglist/read";
 
 export default async function ShoppingList() {
@@ -10,6 +11,7 @@ export default async function ShoppingList() {
             {data.map(item => (
                 <div key={item.id} className="mb-4 p-4 border rounded">
                     <h2 className="text-xl font-semibold">{item.name} - {item.count} (User: {item.user})   </h2>
+                    <RemoveShoppingItem itemId={item.id} />
                 </div>
             ))}
         </div>
