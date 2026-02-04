@@ -1,21 +1,24 @@
 
-import InventoryCard from "@/components/card/inventory";
-import ItemCard from "@/components/card/item";
-import AddItem from "@/components/item/add";
-import { getItems } from "@/lib/item/read";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const data = await getItems();
+  const requestHeaders = await headers();
+
+  const session = await auth.api.getSession({
+    headers: requestHeaders,
+  });
+  if (!session) {
+    redirect("/auth/sign-in");
+  }
+
   return (
-    <div>
-      <InventoryCard />
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold underline">Items</h1>
-        <AddItem />
-      </div>
-      {data.map(item => (
-        <ItemCard key={item.id} item={item} className="mb-8" />
-      ))}
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+      <h1 className="text-3xl font-bold underline">Willkommen bei BBDrinks</h1>
+      <Link href="/shoppinglist">Einkaufsliste</Link>
+      <Link href="/inventory/2">Inventur</Link>
     </div>
   );
 }
