@@ -18,8 +18,10 @@ export default async function ShoppingList() {
     const data = await getShoppinglist();
     return (
         <div>
-            <h1 className="text-3xl font-bold underline">Einkaufsliste</h1>
-            <AddItem />
+            <div className="flex flex-col items-center">
+                <h1 className="text-3xl font-bold underline">Einkaufsliste</h1>
+                <AddItem user={session.user.name} className="mt-6 mb-6 p-4 " />
+            </div>
             {data.map(item => (
                 <div key={item.id} className="mb-4 p-4 border rounded">
                     <h2 className="text-xl font-semibold">{item.name} - {item.count} (User: {item.user})   </h2>

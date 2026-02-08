@@ -7,7 +7,7 @@ export const AddButton: React.FC<ButtonProps> = ({
     onClick,
     disabled = false,
     className = '',
-    ariaLabel = 'Add item',
+    ariaLabel = 'Neuer Artikel',
 }) => {
     return (
         <Button
@@ -17,7 +17,7 @@ export const AddButton: React.FC<ButtonProps> = ({
             className={`add-button ${className} bg-zinc-700 hover:bg-zinc-600`}
             aria-label={ariaLabel}
         >
-            <FilePlus /> Add
+            <FilePlus /> Neuer Artikel
         </Button>
     );
 };

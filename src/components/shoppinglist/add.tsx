@@ -17,12 +17,14 @@ import { Input } from "../ui/input";
 import { createShoppingItem } from "@/lib/shoppinglist/create";
 
 export interface Props {
+    user: string;
     disabled?: boolean;
     className?: string;
     ariaLabel?: string;
 };
 
 export const AddItem: React.FC<Props> = ({
+    user,
     disabled = false,
     className = '',
     ariaLabel = 'Add item',
@@ -46,16 +48,13 @@ export const AddItem: React.FC<Props> = ({
                     const formData = new FormData(e.currentTarget);
                     const itemName = formData.get('item-name') as string;
                     const itemCount = Number(formData.get('item-count'));
-                    const itemUser = formData.get('item-user') as string;
-                    await createShoppingItem(itemName, itemCount, itemUser);
+                    await createShoppingItem(itemName, itemCount, user);
                     window.location.reload();
                 }}>
                     <Label htmlFor="item-name">Name</Label>
                     <Input type="text" id="item-name" name="item-name" className="w-full mt-1 mb-4 p-2 border border-gray-300 rounded" />
                     <Label htmlFor="item-name">Anzahl</Label>
                     <Input type="text" id="item-count" name="item-count" className="w-full mt-1 mb-4 p-2 border border-gray-300 rounded" />
-                    <Label htmlFor="item-name">Besteller</Label>
-                    <Input type="text" id="item-user" name="item-user" className="w-full mt-1 mb-4 p-2 border border-gray-300 rounded" />
                 </form>
                 <DialogFooter>
                     <DialogClose asChild>
