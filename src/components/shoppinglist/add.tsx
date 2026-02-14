@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { createShoppingItem } from "@/lib/shoppinglist/create";
+import { ItemInput } from "./itemInput";
 
 export interface Props {
     user: string;
@@ -52,7 +53,7 @@ export const AddItem: React.FC<Props> = ({
                     window.location.reload();
                 }}>
                     <Label htmlFor="item-name">Name</Label>
-                    <Input type="text" id="item-name" name="item-name" className="w-full mt-1 mb-4 p-2 border border-gray-300 rounded" />
+                    <ItemInput name="item-name" className="w-full mt-1 mb-4 p-2 border border-gray-300 rounded" />
                     <Label htmlFor="item-name">Anzahl</Label>
                     <Input type="text" id="item-count" name="item-count" className="w-full mt-1 mb-4 p-2 border border-gray-300 rounded" />
                 </form>
